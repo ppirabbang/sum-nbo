@@ -3,30 +3,31 @@
 #include <netinet/in.h>
 
 int main(int argc, char ** argv){
-	FILE *fp1 = fopen(argv[1], "r");
-	FILE *fp2 = fopen(argv[2], "r");
-	FILE *fp3 = fopen(argv[3], "r");
-
 	uint32_t thounds[] = {0,};
 	uint32_t two_hundred[] = {0,};
 	uint32_t five_hundred[] = {0,};
 
 
+	FILE *fp1 = fopen(argv[1], "rb");
+	FILE *fp2 = fopen(argv[2], "rb");
+	FILE *fp3 = fopen(argv[3], "rb");
+
+
 	if(fp1){
-		fread(thounds, sizeof(uint32_t), 32, fp1);
+		fread(thounds, sizeof(uint32_t), 1, fp1);
 		fclose(fp1);
 	}
 
 	if(fp2){
-		fread(two_hundred, sizeof(uint32_t), 32, fp2);
+		fread(two_hundred, sizeof(uint32_t), 1, fp2);
 		fclose(fp2);
 	}
 	if(fp3){
-		fread(five_hundred, sizeof(uint32_t), 32, fp3);
+		fread(five_hundred, sizeof(uint32_t), 1, fp3);
 		fclose(fp3);
 	}
 
-	uint32_t* p1 = reinterpret_cast<uint32_t*>(thounds);
+	uint32_t* p1 = thounds;
 	uint32_t n1 = ntohl(*p1);
 	printf("%d(0x%08x)", n1 ,n1);
 
