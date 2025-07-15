@@ -33,13 +33,13 @@ int main(int argc, char ** argv){
 
 	printf(" + ");
 
-	uint32_t* p2 = reinterpret_cast<uint32_t*>(two_hundred);
+	uint32_t* p2 = two_hundred;
 	uint32_t n2 = ntohl(*p2);
 	printf("%d(0x%08x)", n2, n2);
 
 	printf(" + ");
 
-	uint32_t* p3 = reinterpret_cast<uint32_t*>(five_hundred);
+	uint32_t* p3 = five_hundred;
 	uint32_t n3 = ntohl(*p3);
 	printf("%d(0x%08x)", n3, n3);
 
